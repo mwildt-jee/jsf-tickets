@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+eclipse {
+    wtp {
+        facet {
+            facet name: "java", version: "1.7"          
+            facet name: "jst.web", version: "3.0"       
+            facet name: "jst.jsf", version: "2.2"       
+        }
+    }
+}
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// logging
+	compile 'org.slf4j:slf4j-api:1.7.25'
+	compile 'org.slf4j:slf4j-log4j12:1.7.25'
+	
+	// CDI & servlet
+	providedCompile 'javax.enterprise:cdi-api:1.2'	
+	providedCompile 'javax.servlet:javax.servlet-api:3.0.1' 
+	
+	// persistence & transaction
+  	providedCompile 'org.eclipse.persistence:javax.persistence:2.1.0'  	
+  	providedCompile 'javax.transaction:javax.transaction-api:1.2'  	  	
+	compile 'com.h2database:h2:1.4.196'
+
+	// java Server Facse
+	providedCompile 'com.sun.faces:jsf-api:2.2.10'
+}
+
+
+
+
+
+
+
+
+

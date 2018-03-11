@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence 
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<!-- der transaction-type bestimmt, ob Transaktionen manuell (RESOURCE_LOCAL) oder durch den Container (JTA) gesteuert werden. -->
+	<persistence-unit name="tickets" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		
+		<!-- referenz auf die in der glassfish-resources.xml definierten Datenquelle -->
+		<jta-data-source>java:app/jdbc/tickets</jta-data-source>
+		        
+		<properties>	
+			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+	     	
+	    </properties>
+	    
+	</persistence-unit>
+</persistence>

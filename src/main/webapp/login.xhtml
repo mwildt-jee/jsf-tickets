@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 
+Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<title>Tickets</title>
+</head>
+<body>
+	
+	<div class="container container-fluid">
+	
+		<h1>Login</h1>
+		
+		<h:messages styleClass="list-unstyled" errorClass="alert alert-danger" warnClass="alert alert-warning" infoClass="alert alert-info"/>
+		
+		<h:panelGroup rendered="#{sessionContext.loggedIn}">
+			<p>No need to log in a snd. time</p>
+		</h:panelGroup>
+		
+		<h:panelGroup rendered="#{!sessionContext.loggedIn}">
+		
+			<p>No Account? <h:link outcome="register" value="Create One!" /></p>
+		
+			<h:form>
+				<div class="form-group">
+					<label>Username</label>
+					<h:inputText value="#{loginRequest.username}" class="form-control" />
+				</div>
+				
+				
+				<div class="form-group">
+					<label>Password</label>
+					<h:inputText value="#{loginRequest.password}" class="form-control" />
+				</div>
+				
+				<h:commandButton class="btn btn-default" action="#{loginController.login}" value="Login" />
+				
+			</h:form>
+			
+		</h:panelGroup>
+		
+	</div>		
+
+</body>
+</html>
